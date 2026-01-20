@@ -1,0 +1,246 @@
+:root {
+  color-scheme: dark;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  background: #0b0f14;
+  color: #e6eef7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #1a202a, #05070b);
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  border-bottom: 1px solid #1c2430;
+  background: #0e141d;
+}
+
+.title h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+}
+
+.title p {
+  margin: 0.3rem 0 0;
+  color: #9fb2c9;
+  font-size: 0.9rem;
+}
+
+.stats {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.stat {
+  text-align: right;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: #9fb2c9;
+  letter-spacing: 0.08em;
+}
+
+.stat strong {
+  display: block;
+  font-size: 1.4rem;
+  color: #f3f6fb;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem 2.5rem;
+  flex: 1;
+}
+
+.canvas-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+canvas {
+  width: 100%;
+  max-width: 900px;
+  border: 3px solid #1a222f;
+  background: #0b0f14;
+  border-radius: 12px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+.hint {
+  font-size: 0.85rem;
+  color: #8aa0bb;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  background: #0e141d;
+  border: 1px solid #1c2430;
+  border-radius: 14px;
+  padding: 1.2rem;
+  height: fit-content;
+}
+
+.panel-section h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1rem;
+  color: #f2f5fa;
+}
+
+.tower-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px solid #263246;
+  background: #111824;
+  color: #e6eef7;
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  margin-bottom: 0.6rem;
+  cursor: pointer;
+  transition: border 0.2s ease, transform 0.2s ease;
+}
+
+.tower-btn.active {
+  border-color: #64c1ff;
+  transform: translateY(-1px);
+}
+
+.swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+}
+
+.swatch.red { background: #ff4f5e; }
+.swatch.green { background: #4fe88c; }
+.swatch.blue { background: #46b0ff; }
+.swatch.purple { background: #a66bff; }
+
+.panel-section ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: #9fb2c9;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+button {
+  font-family: inherit;
+}
+
+.primary {
+  width: 100%;
+  background: linear-gradient(180deg, #7fa68a, #4a6b56);
+  border: 1px solid #8abf98;
+  color: #eaf6ee;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ghost {
+  width: 100%;
+  border: 1px solid #2d3a44;
+  background: #0c1118;
+  color: #c5d4e8;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.menu {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 8, 12, 0.78);
+  backdrop-filter: blur(4px);
+}
+
+.menu.hidden {
+  display: none;
+}
+
+.menu-card {
+  background: #0e141d;
+  border: 1px solid #3b4b56;
+  border-radius: 16px;
+  padding: 2rem;
+  width: min(420px, 90vw);
+  text-align: center;
+  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.45);
+}
+
+.menu-card h2 {
+  margin-top: 0;
+}
+
+.difficulty {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.difficulty button,
+.map-picker button {
+  border: 1px solid #4b5f6b;
+  background: #1a232c;
+  color: #d6e1f0;
+  padding: 0.6rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.difficulty button.active {
+  border-color: #89c49c;
+  color: #eaf6ee;
+  box-shadow: 0 0 12px rgba(137, 196, 156, 0.35);
+}
+
+.map-picker {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.map-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+@media (max-width: 960px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    order: -1;
+  }
+}
