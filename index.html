@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maze Builder TD</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="top-bar">
+        <div class="title">
+          <h1>Maze Builder TD</h1>
+          <p>Shape the path. Control the flow.</p>
+        </div>
+        <div class="stats">
+          <div class="stat"><span>Cash</span><strong id="cash">200</strong></div>
+          <div class="stat"><span>Wave</span><strong id="wave">1</strong></div>
+          <div class="stat"><span>Lives</span><strong id="lives">20</strong></div>
+        </div>
+      </header>
+
+      <main class="main">
+        <section class="canvas-wrap">
+          <canvas id="game" width="720" height="480"></canvas>
+          <div class="hint">Click tiles to place the selected tower. Right click to remove.</div>
+          <div id="message" class="message">Welcome commander. Build the maze.</div>
+        </section>
+
+        <aside class="panel">
+          <div class="panel-section">
+            <h2>Towers</h2>
+            <button class="tower-btn" data-tower="gatling">
+              <span class="tower-icon gatling"></span> Red Gatling <small>$40</small>
+            </button>
+            <button class="tower-btn" data-tower="glue">
+              <span class="tower-icon glue"></span> Green Glue <small>$35</small>
+            </button>
+            <button class="tower-btn" data-tower="missile">
+              <span class="tower-icon missile"></span> Blue Missile <small>$60</small>
+            </button>
+            <button class="tower-btn" data-tower="tesla">
+              <span class="tower-icon tesla"></span> Purple Tesla <small>$90</small>
+            </button>
+            <div class="tower-readout">
+              <span>Selected</span>
+              <strong id="selected-tower">Red Gatling</strong>
+            </div>
+          </div>
+
+          <div class="panel-section">
+            <h2>Controls</h2>
+            <ul>
+              <li>Shape the maze by placing towers.</li>
+              <li>Enemies always take the shortest open path.</li>
+              <li>Do not block the exit path completely.</li>
+            </ul>
+          </div>
+
+          <div class="panel-section">
+            <h2>Wave</h2>
+            <button id="start-wave" class="primary">Start Next Wave</button>
+            <button id="pause" class="ghost">Pause</button>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <div id="menu" class="menu">
+      <div class="menu-card">
+        <h2>Choose Difficulty</h2>
+        <div class="difficulty">
+          <button data-difficulty="fun">Fun</button>
+          <button data-difficulty="easy">Easy</button>
+          <button data-difficulty="normal" class="active">Normal</button>
+          <button data-difficulty="hard">Hard</button>
+        </div>
+
+        <h2>Map</h2>
+        <div class="map-picker">
+          <button id="map-prev">◀</button>
+          <div>
+            <div id="map-name" class="map-name">Circuit Yard</div>
+            <small id="map-desc">Long corridors with tight corners.</small>
+          </div>
+          <button id="map-next">▶</button>
+        </div>
+
+        <button id="play" class="primary">Deploy</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
